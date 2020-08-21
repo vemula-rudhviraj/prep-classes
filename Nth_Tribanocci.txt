@@ -1,0 +1,33 @@
+class Solution 
+{
+    public int tribonacci(int n) 
+    {
+        if (n == 0)
+        {
+            return 0;
+        }
+        if (n == 1)
+        {
+            return 1;
+        }
+        if (n == 2)
+        {
+            return 1;
+        }
+		int k = 3;
+        int arr[] = new int[n + 1];
+        int sum = 0;
+        arr[0] = 0;
+        for (int i = 1 ; i < k ; i++)
+        {
+            arr[i] = 1;
+            sum+=arr[i];
+        }
+        for (int i = k; i <= n ; i++)
+        {
+            arr[i] = sum;
+            sum = sum - arr[i-k] + arr[i];
+        }
+        return arr[n];
+    }
+}

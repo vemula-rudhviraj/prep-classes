@@ -1,0 +1,29 @@
+class Solution {
+        public int romanToInt(String s) {
+        HashMap<Character,Integer> map= new HashMap();
+        int finalNumber = 0;
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+        int i = 0;
+       while(i < s.length()){
+            int first = map.get(s.charAt(i));
+            int second = 0;
+            if((i + 1) < s.length()){
+                second = map.get(s.charAt(i + 1));
+            }   
+           if(first < second) {
+               finalNumber = finalNumber + second - first;
+               i += 2;
+           } else {
+              finalNumber += first;
+              i++;
+           }    
+        }
+        return finalNumber;
+    }   
+}

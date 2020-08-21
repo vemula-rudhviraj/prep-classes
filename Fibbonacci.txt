@@ -1,0 +1,16 @@
+class Solution {
+    public int fib(int N) {
+        if(N==0 || N==1)
+        {
+            return N;
+        }
+        int n1=0,n2=1,n3=0;
+        for(int i=2;i<=N;i++)
+        {
+            n3=n1+n2;
+            n1=n2;
+            n2=n3;
+        }
+        return n3;
+    }
+}
